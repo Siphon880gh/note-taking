@@ -69,6 +69,7 @@ const renderActiveNote = () => {
 };
 
 const handleNoteSave = () => {
+    // A new id for the new note will be created when inserting to db.json
     const newNote = {
         title: noteTitle.value,
         text: noteText.value,

@@ -35,6 +35,13 @@ app.get("/api/notes", (req, res) => {
     res.json(arrNoteObjects)
 })
 
+// Request posting a new note
+app.post("/api/notes", (req, res) => {
+    let newNote = req.body;
+    let updatedNotesArr = db.saveNote(newNote);
+    res.json(updatedNotesArr);
+})
+
 // Listen at port
 app.listen(port, () => {
     console.log(`App listening on PORT ${port}`);

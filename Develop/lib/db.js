@@ -31,6 +31,9 @@ module.exports = class {
         // Update notes object array
         this.notes.push(newNote);
         this.wrappers().writeJSONFile(this.notes);
+
+        // Return the updated notes object array
+        return this.notes;
     }
     wrappers() {
         return {
