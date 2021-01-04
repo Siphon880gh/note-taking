@@ -24,6 +24,17 @@ app.get("/", (req, res) => {
     res.sendFile("./index.html", ROOT);
 })
 
+// Notes listing
+app.get("/notes", (req, res) => {
+    res.sendFile("notes.html", ROOT);
+})
+
+// Request getting all notes
+app.get("/api/notes", (req, res) => {
+    const arrNoteObjects = db.getAllNotes();
+    res.json(arrNoteObjects)
+})
+
 // Listen at port
 app.listen(port, () => {
     console.log(`App listening on PORT ${port}`);
