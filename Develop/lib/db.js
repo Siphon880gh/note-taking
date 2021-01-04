@@ -9,35 +9,42 @@ module.exports = class {
             this.notes = this.getAllNotes();
         }
         /**
-         * @function getAllNotes
-         * Read notes from JSON file at DB_PATH
-         * 
+         * @function getAllNotes Read notes from JSON file at DB_PATH
+         * @returns array of notes object to re-render left column
          */
     getAllNotes() {
-        this.notes = this.wrappers().readJSONFile(DB_PATH);
-        return this.notes;
-    }
-    saveNote(newNote) {
-        // console.log({ notes: this.notes });
-        // throw "";
-        // Get a new unique ID
-        let newId = 0;
-        if (this.notes.length) {
-            const lastNote = this.notes[this.notes.length - 1];
-            const lastId = parseInt(lastNote.id);
-            newId = lastId + 1;
+            this.notes = this.wrappers().readJSONFile(DB_PATH);
+            return this.notes;
         }
+        /**
+         * @function saveNote Save a note to DB_PATH
+         * @param newNote note object that represents the user's new title and note body text
+         * @returns array of notes object to re-render left column
+         */
+    saveNote(newNote) {
+            // Get a new unique ID
+            let newId = 0;
+            if (this.notes.length) {
+                const lastNote = this.notes[this.notes.length - 1];
+                const lastId = parseInt(lastNote.id);
+                newId = lastId + 1;
+            }
 
-        // Assign new Id to new note
-        newNote.id = newId;
+            // Assign new Id to new note
+            newNote.id = newId;
 
-        // Update notes object array
-        this.notes.push(newNote);
-        this.wrappers().writeJSONFile(this.notes);
+            // Update notes object array
+            this.notes.push(newNote);
+            this.wrappers().writeJSONFile(this.notes);
 
-        // Return the updated notes object array
-        return this.notes;
-    }
+            // Return the updated notes object array
+            return this.notes;
+        }
+        /**
+         * @function deleteNote Delete a note to DB_PATH
+         * @param idNote        Note ID corresponding to the note user wants to delete
+         * @returns array of notes object to re-render left column
+         */
     deleteNote(idNote) {
         console.group("Before deleting");
         console.log({ notes: this.notes });
