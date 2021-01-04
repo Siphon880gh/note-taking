@@ -5,8 +5,8 @@ module.exports = class {
     constructor() {
             this.DB_PATH = DB_PATH;
 
-            // Empty notes until getAllNotes called
-            this.notes = [];
+            // Model the JSON file
+            this.notes = this.getAllNotes();
         }
         /**
          * @function getAllNotes
@@ -33,6 +33,17 @@ module.exports = class {
         this.wrappers().writeJSONFile(this.notes);
 
         // Return the updated notes object array
+        return this.notes;
+    }
+    deleteNote(idNote) {
+        console.group("Before deleting");
+        console.log({ notes: this.notes });
+        // Find note user wants to delete by note ID
+        this.notes = this.notes.filter(function(note) { return note.id !== idNote });
+        this.wrappers().writeJSONFile(this.notes);
+
+        console.group("After deleting");
+        console.log({ notes: this.notes });
         return this.notes;
     }
     wrappers() {

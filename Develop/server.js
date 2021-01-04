@@ -16,6 +16,7 @@ const ROOT = { root: path.join(__dirname, './public') };
 // Request accepts
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 // So assets do not 404
 app.use(express.static(path.join(__dirname, "./public")));
 
@@ -39,6 +40,17 @@ app.get("/api/notes", (req, res) => {
 app.post("/api/notes", (req, res) => {
     let newNote = req.body;
     let updatedNotesArr = db.saveNote(newNote);
+    res.json(updatedNotesArr);
+})
+
+// Request deleting a note
+app.delete("/api/notes/:idNote", (req, res) => {
+    // Get Note Id that the user picked for deletion
+    let idNote = req.params.idNote;
+    idNote = parseInt(idNote);
+
+    // Delete note from ORM by the note ID
+    let updatedNotesArr = db.deleteNote(idNote);
     res.json(updatedNotesArr);
 })
 
