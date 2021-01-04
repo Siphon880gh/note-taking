@@ -20,7 +20,7 @@ Table of Contents
 
 Demo
 ---
-[Coming soon](#)
+[Open Simple Note Taker](https://simple-note-taker-wff.herokuapp.com/)
 
 Screenshots
 ---
