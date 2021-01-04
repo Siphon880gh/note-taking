@@ -21,9 +21,12 @@ module.exports = class {
         // console.log({ notes: this.notes });
         // throw "";
         // Get a new unique ID
-        const lastNote = this.notes[this.notes.length - 1];
-        const lastId = parseInt(lastNote.id);
-        const newId = lastId + 1;
+        let newId = 0;
+        if (this.notes.length) {
+            const lastNote = this.notes[this.notes.length - 1];
+            const lastId = parseInt(lastNote.id);
+            newId = lastId + 1;
+        }
 
         // Assign new Id to new note
         newNote.id = newId;
