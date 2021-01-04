@@ -17,3 +17,12 @@
 .list-group-item>i {
     width: auto;
 }
+
+
+/** Hover effects **/
+
+.new-note:hover,
+.save-note:hover,
+.delete-note:hover {
+    color: #E8921C !important;
+}
