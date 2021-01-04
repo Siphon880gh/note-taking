@@ -1,6 +1,12 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const favicon = require("serve-favicon");
+
+// Set favicon
+// app.use(favicon(path.join(__dirname, './public/assets/icons/', 'Pelfusion-Long-Shadow-Ios7-Notes.ico')))
+// app.use(express.favicon("public/assets/icons/Pelfusion-Long-Shadow-Ios7-Notes.ico"));
+app.use(favicon(path.join(__dirname, 'public', 'assets', 'ico', 'favicon.ico')));
 
 // Get port number
 const PortDetector = require("./lib/Port")
