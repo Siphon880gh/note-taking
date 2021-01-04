@@ -1,4 +1,4 @@
-const PortDetector = require("../lib/port");
+const PortDetector = require("../lib/Port");
 
 describe("Test port detector", () => {
     test("Test port is 3001 when running tests on localhost", () => {

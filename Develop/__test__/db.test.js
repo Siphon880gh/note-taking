@@ -1,5 +1,5 @@
 // Database connected to db.json
-const Db = require("../lib/db");
+const Db = require("../lib/Db");
 
 describe("Actual ORM DB", () => {
     const db = new Db();
