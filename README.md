@@ -10,7 +10,7 @@ Table of Contents
 ---
 - [Description](#description)
 - [Demo](#demo)
-- [Screeenshots](#screenshots)
+- [Screenshots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
