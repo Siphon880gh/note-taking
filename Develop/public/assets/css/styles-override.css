@@ -26,3 +26,7 @@
 .delete-note:hover {
     color: #E8921C !important;
 }
+
+.list-group-item:hover {
+    background-color: lightgray !important;
+}
