@@ -1,0 +1,19 @@
+/*
+ * UX: Expand the clickable area to open a note to the white space between the title 
+ * and the trash icon
+ *
+ */
+
+.list-group-item {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.list-group-item>span {
+    width: 100%;
+}
+
+.list-group-item>i {
+    width: auto;
+}
