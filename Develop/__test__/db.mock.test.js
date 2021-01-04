@@ -1,3 +1,4 @@
+// Mock database ORM
 const Db = require("../lib/db");
 jest.mock("../lib/db");
 
