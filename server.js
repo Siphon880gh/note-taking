@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const favicon = require("serve-favicon");
+require("dotenv").config();
 
 // Set favicon
 // app.use(favicon(path.join(__dirname, './public/assets/icons/', 'Pelfusion-Long-Shadow-Ios7-Notes.ico')))
@@ -9,8 +10,7 @@ const favicon = require("serve-favicon");
 app.use(favicon(path.join(__dirname, 'public', 'assets', 'ico', 'favicon.ico')));
 
 // Get port number
-const PortDetector = require("./lib/Port")
-const { port } = new PortDetector();
+let PORT = process.env.PORT || 3001;
 
 // Get database instance
 const Db = require("./lib/Db");
@@ -61,6 +61,6 @@ app.delete("/api/notes/:idNote", (req, res) => {
 })
 
 // Listen at port
-app.listen(port, () => {
-    console.log(`App listening on PORT ${port}`);
+app.listen(PORT, () => {
+    console.log(`App listening on PORT ${PORT}`);
 })
