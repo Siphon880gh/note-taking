@@ -8,6 +8,9 @@ Base URL - Here's how you replace the baseURL for this app:
 - Run grep for `/app/note-taking/` and replace with your new baseURL. Or you may use sed to match and replace.
 - Run grep for `/app/note-taking` and replace with your new baseURL. Or you may use sed to match and replace.
 
+Envs:
+- ./.env
+
 Reverse Proxies: 
 - `/app/note-taking[/]*` proxy passes to `127.0.0.1:PORT` where PORT is the unique Express port.
 
